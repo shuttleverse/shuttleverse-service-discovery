@@ -96,11 +96,6 @@ jobs:
         with:
           cluster: ${{ secrets.OKE_CLUSTER_OCID }}
 
-      - name: Create Kubernetes Secret for MongoDB URI
-        run: |
-          kubectl create secret generic mongodb-secret \
-            --from-literal=MONGODB_PROD_URI=${{ secrets.MONGODB_PROD_URI }}
-
       - name: Inject Docker Username into Deployment YAML
         run: |
           sed -i "s|docker-user|${{ secrets.DOCKER_USERNAME }}|g" k8s/deployment.yaml
