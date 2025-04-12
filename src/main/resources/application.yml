@@ -1,1 +1,4 @@
-spring.application.name=shuttleverse-service-discovery
+spring.application.name: shuttleverse-service-discovery
+
+server:
+  port: 8761
